@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 
 import java.util.List;
@@ -50,15 +51,15 @@ public class BooksControllerAPI {
         }
     }
 
-//    @DeleteMapping(value = "/delete/{id}")
-//    public Boolean deleteBook(@PathVariable long id) {
-//        Optional<Book> book = booksData.findById(id);
-//        if (book != null) {
-//            booksData.delete(book.get());
-//            return true;
-//        }
-//        return false;
-//    }
+    @DeleteMapping(value = "/delete/{id}")
+    public Boolean deleteBook(@PathVariable long id) {
+        Optional<Book> book = booksData.findById(id);
+        if (book != null) {
+            booksData.delete(book.get());
+            return true;
+        }
+        return false;
+    }
 
 
 }
